@@ -39,7 +39,7 @@ const toggleMode=(cls) =>{
   return (
 <>
 
-<Navbar title="TextAnalyze" mode={mode} toggleMode={toggleMode} aboutText="About Us"/>
+<Navbar title="TextAnalyzer" mode={mode} toggleMode={toggleMode} aboutText="About Us"/>
 <Alert alert={alert}/>
 <div className="container my-3">
 
