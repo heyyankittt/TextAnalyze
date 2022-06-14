@@ -36,6 +36,8 @@ const toggleMode=(cls) =>{
     showAlert("Light mode has been enabled", "success");
   }
 }
+
+
   return (
 <>
 
