@@ -35,6 +35,13 @@ export default function TextForm(props) {
     setText(event.target.value);
   }
 
+  const handlecopyclick = () => {
+    const myBox = document.getElementById("myBox");
+    myBox.select();
+    document.execCommand("Copy");
+    props.showAlert("Text has been copied!", "success");
+  }
+
   const handlereplaceclick = () => {
      var replacefrom = prompt("Enter text which you want to replace:");
      var replaceto = prompt("Enter the new text:");
@@ -57,8 +64,10 @@ color: props.mode==='dark'?'white':'#042743'}} onChange={handleOnChange} id="myB
 
 <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={handleUpClick}>Convert to Uppercase</button>
 <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={handleLoClick}>Convert to Lowercase</button>
+<button disabled={text.length===0} className="btn btn-primary mx-2 my-2" id="myButton" onClick={handlecopyclick}>Copy Text</button>
 <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={handleclearClick}>Clear Text</button>
 <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={handlereplaceclick}>Replace Text</button>
+
 
 
 
