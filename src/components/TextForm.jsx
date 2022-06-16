@@ -54,6 +54,7 @@ export default function TextForm(props) {
   const handlereverseclick = () => {
     let newText = text.toString().split('').reverse().join('');
     setText(newText);
+    props.showAlert("Text has been reversed!", "success");
   }
 
     const [text, setText] = useState('');
