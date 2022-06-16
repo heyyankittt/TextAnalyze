@@ -51,6 +51,11 @@ export default function TextForm(props) {
 
   }
 
+  const handlereverseclick = () => {
+    let newText = text.toString().split('').reverse().join('');
+    setText(newText);
+  }
+
     const [text, setText] = useState('');
     
   return (
@@ -65,6 +70,7 @@ color: props.mode==='dark'?'white':'#042743'}} onChange={handleOnChange} id="myB
 <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={handleUpClick}>Convert to Uppercase</button>
 <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={handleLoClick}>Convert to Lowercase</button>
 <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" id="myButton" onClick={handlecopyclick}>Copy Text</button>
+<button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={handlereverseclick}>Reverse Text</button>
 <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={handleclearClick}>Clear Text</button>
 <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={handlereplaceclick}>Replace Text</button>
 
