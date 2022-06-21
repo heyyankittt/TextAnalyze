@@ -63,6 +63,12 @@ export default function TextForm(props) {
     setText(newText);
     props.showAlert("Text has been repeated!", "success");
   }
+  
+  const speak = () => {
+    let msg = new SpeechSynthesisUtterance();
+    msg.text = text;
+    window.speechSynthesis.speak(msg);
+  }
 
     const [text, setText] = useState('');
     
@@ -74,10 +80,11 @@ export default function TextForm(props) {
   <textarea className="form-control" value={text} style={{backgroundColor: props.mode==='dark'?'grey':'white', 
 color: props.mode==='dark'?'white':'#042743'}} onChange={handleOnChange} id="myBox" rows="8"></textarea>
 </div>
-
+<div id = "ulineText"></div>
 <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={handleUpClick}>Convert to Uppercase</button>
 <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={handleLoClick}>Convert to Lowercase</button>
 <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" id="myButton" onClick={handlecopyclick}>Copy Text</button>
+<button disabled={text.length===0} type="submit" onClick={speak} className="btn btn-warning mx-2 my-2">Speak</button>
 <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={handlereverseclick}>Reverse Text</button>
 <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={repeatClick}>Repeat Text</button>
 <button disabled={text.length===0} className="btn btn-primary mx-2 my-2" onClick={handleclearClick}>Clear Text</button>
