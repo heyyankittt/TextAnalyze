@@ -63,7 +63,7 @@ export default function TextForm(props) {
     setText(newText);
     props.showAlert("Text has been repeated!", "success");
   }
-  
+
   const speak = () => {
     let msg = new SpeechSynthesisUtterance();
     msg.text = text;
@@ -96,7 +96,7 @@ color: props.mode==='dark'?'white':'#042743'}} onChange={handleOnChange} id="myB
 </div>
 <div className="container my-2" style={{color: props.mode==='dark'?'white':'#042743'}}>
   <h2>Your text summary</h2>
-  <p>{text.split(/\s+/).filter((element)=> {return element.length!==0}).length} Words, {text.length} Characters</p>
+  <p>{text.split(/\s+/).filter((element)=> {return element.length!==0}).length} Words, {text.length} Characters, {text.split('.').filter((element)=> {return element.length!==0}).length} Sentences</p>
   <p>{0.008 * text.split(" ").length}Minutes Read</p>
 
   <h2>Preview</h2>
